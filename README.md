@@ -1,6 +1,8 @@
 # Node API Skeleton
+*** Create Folders [accessLog & uploads] ***
 Express Framework  - API 
 * NPM INSTALL
+
 
 #Secure Dependencies
 1. @hapi/joi / validator - Validation
