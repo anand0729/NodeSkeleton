@@ -18,3 +18,4 @@ Express Framework  - API
 11. morgan log
 12. mysql / mysql2 / sequelize ORM
 13. Multer - Helps to Upload File (img,doc,etc...)
+14. Debug - Easy to debug the Programing Flow(Configurable in .env)
