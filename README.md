@@ -15,3 +15,4 @@ Express Framework  - API
 10. moment / moment-timezone
 11. morgan log
 12. mysql / mysql2 / sequelize ORM
+13. Multer - Helps to Upload File (img,doc,etc...)

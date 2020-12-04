@@ -51,31 +51,43 @@ module.exports = function(app) {
 
     //VALIDATE ALL INCOMING REQUEST TOKEN
     app.use((req,res,next)=>{
-        if(req.path.split('/')[1] == 'auth')
+        if(req.path.includes("auth") )
             next();
         else{
             try {
                 const token = req.headers.authorization.split(' ')[1];
                 if (!token) {
-                    res.status(401).send('Access Denied',req.path);
+                    let resp = {
+                        status : 403,
+                        msg : "Access Denied",
+                        err : 'Authorization Not Found !'
+                    }
+                    res.status(403).send(resp);
                 }
                 try {
                     userInfo = jwt.verify(token, process.env.TokenSecret);
                     req.userInfo = userInfo;
                     next();
                 } catch (err) {
-                    res.status(400).send('Token Expired (or) Invalid Token'); 
+                    let resp = {
+                        status : 401,
+                        msg : "Access Denied",
+                        err : "Token Expired (or) Invalid Token"
+                    }
+                    res.status(401).send(resp); 
                 }
             } catch (err) {
-                res.status(400).send('Access Denied'); 
+                let resp = {
+                    status : 403,
+                    msg : "Access Denied",
+                    err : 'Authorization Not Found !'
+                }
+                   
+                
+                res.status(403).send(resp);
             }
         }
     })
-    
-    
- 
-
-
 }
 
 
